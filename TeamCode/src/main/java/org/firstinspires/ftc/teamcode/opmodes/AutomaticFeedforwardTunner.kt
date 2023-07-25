@@ -15,17 +15,18 @@ import org.firstinspires.ftc.teamcode.util.RegressionUtil.fitAccelData
 import org.firstinspires.ftc.teamcode.util.RegressionUtil.fitRampData
 import org.firstinspires.ftc.teamcode.util.telemetry.RobotTelemetry
 import kotlin.math.sqrt
+import com.amarcolini.joos.command.CommandOpMode
 
 
 @TeleOp(name = "Automatic Feedforward Tunner", group = "Tuning")
-class AutomaticFeedforwardTunner : RobotOpMode<MainRobot>() {
+class AutomaticFeedforwardTunner : CommandOpMode<MainRobot>() {
     companion object {
         const val MAX_POWER = 0.7
         const val DISTANCE: Inch = 100.0
     }
 
 
-    override fun preStart() {
+     fun preStart() {
         var fitIntercept = false
 
         val maxVel: Double = WHEEL_RADIUS * GEAR_RATIO
@@ -59,7 +60,7 @@ class AutomaticFeedforwardTunner : RobotOpMode<MainRobot>() {
                         )
                     )
                     RobotTelemetry.addLine("Press (Y/Δ) to begin")
-                },
+                }
                 isFinished = { gamepad1.y },
                 end = {
                     RobotTelemetry.clearAll()

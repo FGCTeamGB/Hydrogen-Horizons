@@ -1,7 +1,7 @@
 package org.firstinspires.ftc.teamcode
 
+import com.amarcolini.joos.command.CommandOpMode
 import com.amarcolini.joos.command.Robot
-import com.amarcolini.joos.command.RobotOpMode
 import com.amarcolini.joos.geometry.Pose2d
 import com.amarcolini.joos.hardware.Imu
 import com.amarcolini.joos.hardware.Servo
@@ -25,9 +25,10 @@ import org.firstinspires.ftc.teamcode.components.arm.Intake
 import org.firstinspires.ftc.teamcode.components.arm.Tipper
 import org.firstinspires.ftc.teamcode.components.arm.Tipper.Tipper.TIPPER_NAME
 import org.firstinspires.ftc.teamcode.util.telemetry.RobotTelemetry
+import org.firstinspires.ftc.teamcode.util.telemetry.RobotTelemetry.telemetry
 import kotlin.math.PI
 
-class MainRobot(val opMode: RobotOpMode<MainRobot>) : Robot(opMode) {
+class MainRobot() : Robot() {
     // declare your motors and sensors here. CRS, Servos, DC, Drivetrain
     lateinit var drive: DiffSwerveDrive
     var imu: Imu? = null

@@ -1,7 +1,7 @@
 package org.firstinspires.ftc.teamcode.opmodes
 
 import com.amarcolini.joos.command.Command
-import com.amarcolini.joos.command.RobotOpMode
+import com.amarcolini.joos.command.CommandOpMode
 import com.amarcolini.joos.geometry.Pose2d
 import com.amarcolini.joos.geometry.Vector2d
 import com.amarcolini.joos.kinematics.DiffSwerveKinematics
@@ -16,9 +16,11 @@ import org.firstinspires.ftc.teamcode.util.telemetry.RobotTelemetry
 import kotlin.math.PI
 
 @TeleOp(name = "Main", group = "Main")
-class MainTeleOp : RobotOpMode<MainRobot>() {
+class MainTeleOp : CommandOpMode() {
+
+    lateinit var robot: MainRobot
     override fun preInit() {
-        initialize<MainRobot>()
+        this.robot = registerRobot(MainRobot())
 
         RobotTelemetry.addTelemetry("left target" to {
             val (leftTarget) = DiffSwerveKinematics.robotToModuleOrientations(drivePose, 1.0)
